@@ -1,0 +1,6 @@
+INSERT INTO `vehiculos` (`ID`, `marca`, `modelo`, `anno`, `Tipo`, `Patente`, `precio`) VALUES
+(1, 'Toyota', 'Corolla', 2020, 'Sedan', 'ABC123', 20000.00),
+(2, 'Ford', 'Mustang', 2019, 'Coupe', 'XYZ789', 30000.00),
+(3, 'Honda', 'Civic', 2021, 'Sedan', 'DEF456', 22000.00),
+(4, 'Chevrolet', 'Camaro', 2018, 'Coupe', 'GHI012', 28000.00),
+(5, 'Nissan', 'Altima', 2020, 'Sedan', 'JKL345', 21000.00);

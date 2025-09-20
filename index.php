@@ -1,16 +1,14 @@
 <?php
-    session_start();
+    session_start(); //Inicio de sesion
 
+
+//Validacion para verificar que se ingreso un nombre y abrir la siguiente pagina
     if ($_SERVER['REQUEST_METHOD'] === "POST"){
         $nombre =trim($_POST['nombre']);
 
-        if (!empty($nombre)){
-            $_SESSION['nombre'] = $nombre;
-            header("Location: formulario.php");
-            exit();
-        } else {
-            $error = "El campo nombre no puede estar vacío.";
-        }
+        $_SESSION['nombre'] = $nombre;
+        header("Location: formulario.php");
+        exit();
     }
 
 ?>
@@ -45,7 +43,6 @@
 </head>
 <body>
     <h2 class="text-center">Ingresar Nombre</h2>
-    <?php if (!empty($error)): echo "<p style='color:red'>$error</p>"; endif; ?>
     <form class = "d-flex justify-content-center align-items-center vh-100" method="POST" action="">
         <div class="card shadow" style="width: 22rem;">
             <div class="card-body mb-3">

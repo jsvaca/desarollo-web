@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function Consultar (codigo) {
+            $.ajax({
+                url: 'procesar_consulta.php',
+                type: 'POST',
+                data: { codigo: codigo },
+                dataType: 'json',
+                success: function(response) {
+                   $('#resultado').html("<br>Marca: " + response.marca + "<br>Modelo: " + response.modelo + "<br>Año: " + response.anno + 
+                   "<br>Tipo: " + response.Tipo + "<br>Patente: " + response.Patente + "<br>Precio: " + response.precio);
+                },
+                error: function() {
+            
+                    $('#resultado').html("Error en la consulta.");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Consulta</h1>
+    </header>
+    <main>
+        <form>
+            <label for="codigo">Codigo:</label>
+            <input type="number" id="codigo" name="codigo" required>
+            <button type="button" onclick="Consultar($('#codigo').val());" value="Consultar">Consultar</button>
+        </form>
+        <br><br>
+        <span id="resultado"></span>
+    </main>
+    <footer>
+        <p>&copy; 2025 WHEELS FOR RENT</p>
+    </footer>
+</body>
+</html>
